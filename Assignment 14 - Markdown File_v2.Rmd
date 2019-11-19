@@ -1,0 +1,53 @@
+---
+title: 'Peer-graded Assignment:'
+author: "A Johnson"
+date: "September 20, 2019"
+output:
+  slidy_presentation: default
+  ioslides_presentation: default
+subtitle: R Markdown Presentation & Plotly
+---
+
+## Background
+
+Create a web page presentation using R Markdown that features a plot created with Plotly. Host your webpage on either GitHub Pages, RPubs, or NeoCities. Your webpage must contain the date that you created the document, and it must contain a plot created with Plotly. We would love to see you show off your creativity! 
+
+The rubric contains the following two questions:
+
+        - Does the web page feature a date and is this date less than two months before the date that you're grading this assignment?
+
+        - Is the web page a presentation and does it feature an interactive plot that appears to have been created with Plotly?
+
+## Data Source
+
+I pulled name and address information from Google as of 9/17/19 by searching "Oklahoma City" + "dispensary". Given this info, I mapped the addresses of dispensaries using the latitude and longitude of each address (see below for map). Dispensaries were color-coded based on the type of naming convention used: whether the business name included the word "dispensary", whether the business name included "wellness" or "medical", and all other businesses. 
+
+```{r, include = FALSE}
+#setwd("C:/Users/ajohns34/Box/Data Science Specialization/Assignment 14")
+
+#Read in the data:
+    disp = read.csv("./Dispensaries in OKC.csv", header = T)
+    library(plotly)
+```
+
+## Plotly Code
+
+Code used to generate the plot. The plot appears on the next slide.
+```{r plotcode, tidy=TRUE}
+f = list(family = "Courier New, monospace", size = 18, color = "#7f7f7f")
+x = list(title = "Latitude", titlefont = f)
+y = list(title = "Longitude", titlefont = f)
+p = plot_ly(x = disp$Lat, y = disp$Long, type = "scatter", mode = "markers", color = disp$Type) %>%
+    layout(xaxis = x, yaxis = y)
+
+```
+
+## Latitude and Longitude of Dispensaries in Oklahoma City, OK
+
+```{r map, echo = FALSE}
+
+    p    
+    
+```
+
+
