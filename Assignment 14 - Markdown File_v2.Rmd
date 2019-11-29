@@ -23,7 +23,7 @@ The rubric contains the following two questions:
 I pulled name and address information from Google as of 9/17/19 by searching "Oklahoma City" + "dispensary". Given this info, I mapped the addresses of dispensaries using the latitude and longitude of each address (see below for map). Dispensaries were color-coded based on the type of naming convention used: whether the business name included the word "dispensary", whether the business name included "wellness" or "medical", and all other businesses. 
 
 ```{r, include = FALSE}
-#setwd("C:/Users/ajohns34/Box/Data Science Specialization/Assignment 14")
+setwd() #Masked for Github upload
 
 #Read in the data:
     disp = read.csv("./Dispensaries in OKC.csv", header = T)
